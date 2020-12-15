@@ -2,9 +2,9 @@
 <br>
 <br>
 <h2>List of contents:<h2>
-1. Technology used and packages, libraries, frameworks
-2. Project Overview
-3. Functionality explaination 
+1. Technology used and packages, libraries, frameworks<br>
+2. Project Overview<br>
+3. Functionality explaination<br> 
 <br>
 <br>
 <h2> Technology used:</h2>
