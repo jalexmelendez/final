@@ -10,6 +10,6 @@
 <h2> Technology used:</h2>
 <br>
 1. Languages: Python 3.8, JavaScript ES6.<br>
-2. Frameworks: React JS, Django, UIKit (css), Dashboard Nav Fireship IO responsive Navigation ``https://github.com/fireship-io/222-responsive-icon-nav-css/tree/master/public``.<br>
+2. Frameworks: React JS, Django, UIKit (css), Bootstrap (CSS via CDN and only in snippets) Dashboard Nav Fireship IO responsive Navigation ``https://github.com/fireship-io/222-responsive-icon-nav-css/tree/master/public``.<br>
 3. Dependencies: Django psycopg_2.<br>
 4. Database: PostgreSQL(heroku).<br>

@@ -2,26 +2,41 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script id="user_info">
+          //GlobalDir is a JSON object containing data used in api queries and JS operations
+          let globalDir = {'user': '{{user}}'};
+        </script>
         <title>Mathed dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!--UIKit-->
         <link href="{% static 'mathed/uikit-3.5.16/css/uikit.css' %}" rel="stylesheet"/>
+        <script src="{% static 'mathed/uikit-3.5.16/js/uikit.js' %}"></script>
         <!--NavMenuCSS-->
         <link href="{% static 'mathed/navbar.css' %}" rel="stylesheet" />
-        <link href="{% static 'mathed/navbar.js' %}" />
-        <script defer src="theme.js"></script>
-        <link rel="stylesheet" href="style.css" />
+        <script src="{% static 'mathed/navbar.js' %}" ></script>
+        <!--Dash Interface-->
+        <link href="{% static 'mathed/dashboard.css' %}" rel="stylesheet" />
+        <script src="{% static 'mathed/dashboard.js' %}"></script>
         <link
           href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap"
           rel="stylesheet"
         />
+        <!--React JS-->
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <!--Babel-->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <!--Js and babel application-->
+        <script src="{% static 'mathed/controls.js' %}"></script>
+        <script src="{% static 'mathed/api.js' %}"></script>
+        <script src="{% static 'mathed/renderengine.js' %}" type="text/babel"></script>
       </head>
       <body>
           <!--Navigation menu-->
         <nav class="navbar">
           <ul class="navbar-nav">
             <li class="logo">
-              <a href="#" class="nav-link">
+              <a href="/dashboard" class="nav-link">
                 <span class="link-text logo-text">Mathed</span>
                 <svg
                   aria-hidden="true"
@@ -50,7 +65,7 @@
             </li>
       
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a id="gotoProfile" class="nav-link">
                 <svg
                   aria-hidden="true"
                   focusable="false"
@@ -79,7 +94,7 @@
             </li>
       
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a id="render_ach" class="nav-link">
                 <svg
                   aria-hidden="true"
                   focusable="false"
@@ -108,7 +123,7 @@
             </li>
       
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a id="renderTop_users" class="nav-link">
                 <svg
                   aria-hidden="true"
                   focusable="false"
@@ -137,7 +152,7 @@
             </li>
       
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a id="render_test_ui" class="nav-link">
                 <svg
                   aria-hidden="true"
                   focusable="false"
@@ -167,7 +182,7 @@
       
            <li class="nav-item" id="themeButton">
                
-              <a href="#" class="nav-link">
+              <a href="/logout" class="nav-link">
                 <svg
                   aria-hidden="true"
                   focusable="false"
