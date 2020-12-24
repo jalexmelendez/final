@@ -11,7 +11,7 @@ from django.urls import reverse
 #from .serializers import UserSerializer, PostSerializer
 #from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from .models import user, achieve, test, school, school_group
-from .auxfunctions import badHttpRequest, dbProcessFailure, dbProcessFailureUsr_exist, handleSessionException, userData, userDataPost, apiRoutes
+from .auxfunctions import badHttpRequest, dbProcessFailure, dbProcessFailureUsr_exist, handleSessionException, userData, userDataPost, apiRoutes, testEngine, testSolver
 from .sessionmaker import createUser, userLogin
 
 # Create your views here.
@@ -93,12 +93,29 @@ def controller(request):
         elif request.method == 'POST':
             apiRouter = {
                 'achievements': apiRoutes.achievements(data['user']),
+                'top_by_score': apiRoutes.top_by_score(),
+                'sum': testEngine.sum(),
+                'sub': testEngine.sub(),
+                'multi': testEngine.multi(),
                 }
             operation = apiRouter.get(data['option'])
             return JsonResponse(operation, safe=False)
         else:
             error = {'Error': 'invalid method'}
             return JsonResponse(error)
+    else:
+        error = {'Error': 'Invalid api key'}
+        return JsonResponse(error)
+
+def testEval(request):
+    key = handleSessionException(request)
+    if key == True:
+        data = json.loads(request.body)
+        if request.method == 'POST':
+            evaluation = testSolver.evaluator(data)
+            return JsonResponse(evaluation, safe=False)
+        else:
+            return HttpResponse("invalid HTTP method.")
     else:
         error = {'Error': 'Invalid api key'}
         return JsonResponse(error)

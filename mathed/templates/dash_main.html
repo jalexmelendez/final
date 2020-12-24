@@ -115,14 +115,115 @@
         <!--Endof profile Interface-->
         <!--Start of achievements-->
         <div id="achievements" class="my-app" style="display: none;">
-          <h1>target</h1>
+          <!--ACHIEVEMENTS-->
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-header">
+                <div class="uk-grid-small uk-flex-middle" uk-grid>
+                    <div class="uk-width-auto">
+                        <img class="uk-border-circle" width="40" height="40" src="https://png.pngtree.com/png-vector/20190819/ourlarge/pngtree-gold-trophy-icon-trophy-icon-winner-icon-png-image_1694365.jpg"></img>
+                    </div>
+                    <div class="uk-width-expand">
+                        <h3 class="uk-card-title uk-margin-remove-bottom">Unlocked achievements</h3>
+                        <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">For this first version we have six achievements.</time></p>
+                    </div>
+                </div>
+            </div>
+            <div id="componentsTarget" class="uk-card-body">
+                <p><a onClick="achievementComponents()" class="uk-button">Fetch achievements</a></p>
+            </div>
+            <div class="uk-card-footer">
+                <a class="uk-button uk-button-text">Total achievements to get: 10</a>
+            </div>
         </div>
+          <!--ENDOF ACHIEVEMENTS-->
+        </div>
+        <!--Top Users-->
         <div id="top_users" class="my-app" style="display: none;">
-          target
+          <!---->
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-header">
+                <div class="uk-grid-small uk-flex-middle" uk-grid>
+                    <div class="uk-width-auto">
+                        <img class="uk-border-circle" width="40" height="40" src="https://png.pngtree.com/png-vector/20190819/ourlarge/pngtree-gold-trophy-icon-trophy-icon-winner-icon-png-image_1694365.jpg"></img>
+                    </div>
+                    <div class="uk-width-expand">
+                        <h3 class="uk-card-title uk-margin-remove-bottom">Top 10 users</h3>
+                        <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">Top users in real time.</time></p>
+                    </div>
+                </div>
+            </div>
+            <div id="usercomponentsTarget" class="uk-card-body">
+                <p>In this section you can see the top users in real time sorted by score, ckith the button bellow to render information.</p>
+            </div>
+            <div class="uk-card-footer">
+                <a onClick="topuserComponents()" class="uk-button uk-button-text">Click to fetch top users</a>
+            </div>
         </div>
+          <!---->
+        </div>
+        <!--End of Top users-->
+        <!--Test generator-->
         <div id="practice" class="my-app" style="display: none;">
-          target2
+
+          <!--Sum-->
+          <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+            <div class="uk-card-badge uk-label">25 questions</div>
+            <h3 class="uk-card-title">Sum</h3>
+            <p>Lorem ipsum color sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <a onclick="startSum()" class="uk-button uk-button-default" href="#modal-overflow" uk-toggle>Start</a>
+          </div>    
+          <!--End Sum-->
+             
+          <!--Substraction-->
+          <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+            <div class="uk-card-badge uk-label">25 questions</div>
+            <h3 class="uk-card-title">Substraction</h3>
+            <p>Lorem ipsum color sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <a onclick="startSub()" class="uk-button uk-button-default" href="#modal-overflow" uk-toggle>Start</a>
+          </div> 
+          <!--End Substraction-->
+
+          <!--Multiplication-->
+          <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+            <div class="uk-card-badge uk-label">25 questions</div>
+            <h3 class="uk-card-title">Multiplication</h3>
+            <p>Lorem ipsum color sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <a onclick="startMult()" class="uk-button uk-button-default" href="#modal-overflow" uk-toggle>Start</a>
+          </div>  
+          <!--End Multiplication-->
+
         </div>
+        <!--Endof test generator-->
+
+        <!--Test UI application-->
+        <div id="test_app">
+          <!---->
+          <div id="modal-overflow" uk-modal>
+              <div class="uk-modal-dialog">
+                  <button class="uk-modal-close-default" type="button" uk-close></button>
+                  <div class="uk-modal-header">
+                      <h2 class="uk-modal-title">Headline</h2>
+                  </div>
+                  <div id="questionTarget" class="uk-modal-body" uk-overflow-auto>
+
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                      <button onclick="initExam()" class="uk-button uk-button-danger">Start test</button>
+
+                  </div>
+                  <div class="uk-modal-footer uk-text-right">
+                      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                      <button onclick="alert('ok')" class="uk-button uk-button-primary" type="button">Submit test</button>
+                  </div>
+              </div>
+          </div>
+          <!---->
+          <!--Test storage-->
+          <script>
+            let answers = []
+            let operaror = '';
+          </script>
+        </div>
+        <!--Endof test UI-->
     </main>
   </div>
 </div>

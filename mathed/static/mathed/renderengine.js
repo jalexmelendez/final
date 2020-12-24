@@ -1,5 +1,7 @@
 //Global components
 //Achievements component
+
+//DEPRECIATED FUNCTION
 function achievementsTemplate() {
     let achievementsMainContainer = 
     <div class="uk-card uk-card-default">
@@ -14,39 +16,74 @@ function achievementsTemplate() {
                 </div>
             </div>
         </div>
-    <div id="componentsTarget" class="uk-card-body">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <div id="componentsTarget" class="uk-card-body">
+            <p><a onClick={achievementComponents()} class="uk-button">Fetch achievements</a></p>
+        </div>
+        <div class="uk-card-footer">
+            <a class="uk-button uk-button-text">Total achievements to get: 10</a>
+        </div>
     </div>
-    <div class="uk-card-footer">
-        <a class="uk-button uk-button-text">Total achievements to get: 10</a>
-    </div>
-</div>
 const renderTarget = document.getElementById('achievements');
 ReactDOM.render(achievementsMainContainer, renderTarget);
 }
 
 function achievementComponents() {
+    console.log('executed');
     let achievementObject = dataToRender.map(() =>
-    <article class="uk-comment uk-comment-primary">
-    <header class="uk-comment-header">
-        <div class="uk-grid-medium uk-flex-middle" uk-grid>
-            <div class="uk-width-auto">
-                <img class="uk-comment-avatar" src="images/avatar.jpg" width="80" height="80" alt=""></img>
-            </div>
-            <div class="uk-width-expand">
-                <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">Author</a></h4>
-                <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
-                    <li><a href="#">12 days ago</a></li>
-                    <li><a href="#">Reply</a></li>
-                </ul>
+    <div class="uk-card uk-card-default uk-card-hover">
+        <div class="uk-card-header">
+            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                <div class="uk-width-auto">
+                    <img class="uk-border-circle" width="40" height="40" src="images/avatar.jpg"></img>
+                </div>
+                <div class="uk-width-expand">
+                    <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
+                    <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
+                </div>
             </div>
         </div>
-    </header>
-    <div class="uk-comment-body">
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
     </div>
-    </article>
     );
     const compTarget = document.getElementById('componentsTarget');
     ReactDOM.render(achievementObject, compTarget);
+}
+
+function topuserComponents() {
+    console.log('executed');
+    let achievementObject = dataToRender.map((data) =>
+    <div class="uk-card uk-card-default uk-card-hover">
+        <div class="uk-card-header">
+            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                <div class="uk-width-auto">
+                    <img key={data.profile_pic.toString()} class="uk-border-circle" width="40" height="40" src={data.profile_pic}></img>
+                </div>
+                <div class="uk-width-expand">
+                    <h3 key={data.score.toString()} class="uk-card-title uk-margin-remove-bottom">Score: {data.score} </h3>
+                    <p key={data.username.toString()} class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">Username: {data.username}</time></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    );
+    const compTarget = document.getElementById('usercomponentsTarget');
+    ReactDOM.render(achievementObject, compTarget);
+}
+
+function renderQuestions() {
+    let questionObj = dataToRender.map((data, index) => 
+    <div class="uk-margin">
+        <span>
+            <p key={operator.toString()}>
+                <strong> {index +1}.- </strong>
+                <span key={data['1'].toString()}>{data['1']}</span>
+                <span> {operator} </span>
+                <span key={data['2'].toString()}>{data['2']}</span>
+                <span> = </span>
+                <input key={data.ans.toString()} data-set={data.ans} class="uk-input uk-form-width-small test-answer" type="text" placeholder="Your answer"></input>
+            </p>
+        </span>
+    </div>
+    );
+    const questionTarget = document.getElementById('questionTarget');
+    ReactDOM.render(questionObj, questionTarget);
 }

@@ -1,5 +1,6 @@
 from django.http import HttpResponse, JsonResponse
 from .models import user, achieve, test, school, school_group
+from random import randint
 #Auxiliar functions
 
 ##Http Responses
@@ -113,10 +114,97 @@ class apiRoutes:
             return response
         except:
             achieveEngine.newAchieve(data)
+    
+    @staticmethod
+    def top_by_score():
+        try:
+            db_extract = user.objects.order_by('-score')[0:10]
+            response = []
+            for db_extract in db_extract:
+                data_dict = {
+                    'username': db_extract.username,
+                    'score': db_extract.score,
+                    'profile_pic': db_extract.profile_pic,
+                    }
+                response.append(data_dict)
+            return response
+        except:
+            response = {"ERROR": "An error has occured."}
+            return response
 
 ##test engine
 
-##User average
+class testEngine:
+    def __init__(self):
+        self.testLength = 25
+        pass
+
+    @staticmethod
+    def rndNumGen():
+        testLength = 25
+        data = []
+        for i in range(0, testLength):
+            i += 1
+            numStruct = {'1': randint(1, 500), '2': randint(1,500)}
+            data.append(numStruct)
+        return data
+
+    @staticmethod
+    def sum():
+        numbers = testEngine.rndNumGen()
+        data = []
+        for i in range(0, len(numbers)):
+            answer = numbers[i]['1'] + numbers[i]['2']
+            dstruct = {'1': numbers[i]['1'], '2': numbers[i]['2'], 'ans': hex(answer)}
+            data.append(dstruct)
+            i += 1
+        return data
+
+    @staticmethod
+    def sub():
+        numbers = testEngine.rndNumGen()
+        data = []
+        for i in range(0, len(numbers)):
+            answer = numbers[i]['1'] - numbers[i]['2']
+            dstruct = {'1': numbers[i]['1'], '2': numbers[i]['2'], 'ans': hex(answer)}
+            data.append(dstruct)
+            i += 1
+        return data
+
+    @staticmethod
+    def multi():
+        numbers = testEngine.rndNumGen()
+        data = []
+        for i in range(0, len(numbers)):
+            answer = numbers[i]['1'] * numbers[i]['2']
+            dstruct = {'1': numbers[i]['1'], '2': numbers[i]['2'], 'ans': hex(answer)}
+            data.append(dstruct)
+            i += 1
+        return data
+
+##Test solving engine
+
+class testSolver:
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def evaluator(answers):
+        data = []
+        score_ponts = 0
+        for i in range(0, len(answers['data'])):
+            userAns = answers['data'][i]['user']
+            correctAns = answers['data'][i]['correct']
+            correct = int(correctAns, 16)
+            if userAns == correct:
+                evaluation = True
+                score_ponts += 1
+            else:
+                evaluation = False
+            format = {'user': userAns,'corect': correct, 'evaluation': evaluation}
+            data.append(format)
+        return data
 
 ##Achievement engine
 

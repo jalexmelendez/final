@@ -25,5 +25,6 @@ urlpatterns = [
     path('logout', views.logout, name="logout"),
     path('dashboard', views.profile, name="profile"),
     path('api', views.controller, name="api"),
+    path('submit', views.testEval, name="eval"),
     path('logout', views.logout, name="logout"),
 ]

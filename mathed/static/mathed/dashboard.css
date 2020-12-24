@@ -254,4 +254,6 @@
 /* 
 PROFILE SECTION CSS 
 */
-
+.container-flex {
+  display: inline-flex;
+}

@@ -13,7 +13,8 @@ function apiEngine(option) {
         return response.json();
     })
     .then(response => {
-        console.log(response)
+        dataToRender.splice(0, dataToRender.length);
+        console.log(response);
         pushData(response);
     })
 }
@@ -35,6 +36,23 @@ function filterApiData(response) {
         case undefined: return false; break;
         default: return true;
     } 
+}
+
+//Test API
+function testApiEngine(answers) {
+    let csrftoken = getCookie('csrftoken');
+    fetch(`/submit`, {
+        method: 'POST',
+        headers: { "X-CSRFToken": csrftoken },
+        body: JSON.stringify({'data':answers, 'user': userInSession}),
+        credentials: "same-origin"
+    })
+    .then(function(response) {
+        return response.json();
+    })
+    .then(response => {
+        console.log(response);
+    })
 }
 
 //CSRF TOKEN GENERATOR

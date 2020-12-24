@@ -26,10 +26,9 @@
         <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
         <!--Babel-->
         <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-        <!--Js and babel application-->
+        <!--Js API and controller application-->
         <script src="{% static 'mathed/controls.js' %}"></script>
         <script src="{% static 'mathed/api.js' %}"></script>
-        <script src="{% static 'mathed/renderengine.js' %}" type="text/babel"></script>
       </head>
       <body>
           <!--Navigation menu-->
@@ -217,5 +216,7 @@
           {% block body %}
           {% endblock %}
         </main>
+        <!--React render engine-->
+        <script src="{% static 'mathed/renderengine.js' %}" type="text/babel"></script>
       </body>
 </html>

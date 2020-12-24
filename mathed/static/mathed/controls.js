@@ -33,6 +33,11 @@ document.addEventListener("DOMContentLoaded", function() {
         testUi();
     })
 })
+// Switcher
+
+function asyncSwitcher(option) {
+    console.log('option');
+}
 
 // Functions profile
 function renderProfile() {
@@ -41,16 +46,50 @@ function renderProfile() {
 
 // Functions achievements
 function renderAchievements() {
-    achievementsTemplate();
     apiEngine('achievements');
+    //achievementComponents();
 }
+
 
 // Functions leaderboard
 function topusers() {
-    //alert('top');
+    apiEngine('top_by_score');
 }
 
-// Functions practice
-function testUi() {
-    //alert('ui');
+
+// Function start test
+function startSum() {
+    apiEngine('sum');
+    operator = '+';
+}
+
+function startSub() {
+    apiEngine('sub');
+    operator = '-';
+}
+
+function startMult() {
+    apiEngine('multi');
+    operator = '*';
+}
+
+// Init test
+function initExam() {
+    document.getElementById('questionTarget').innerHTML = '';
+    renderQuestions();
+}
+
+// Functions submit test
+function testSubmit() {
+    let dataSet = document.getElementsByClassName('test-answer');
+    let answers = [];
+    for(i=0;i<dataSet.length;i++) {
+        let correct = dataSet[i].getAttribute('data-set');
+        let usrAnswer = dataSet[i].value;
+        let format = {'user': parseInt(usrAnswer), 'correct': correct}
+        answers.push(format);
+    }
+    testApiEngine(answers);
+    console.log(answers);
+    return 0 ;
 }
