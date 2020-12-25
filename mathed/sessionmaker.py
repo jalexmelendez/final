@@ -26,7 +26,7 @@ def createUser(username, mail, password):
         userexist = user.objects.get(username=username)
         return False
     except user.DoesNotExist:
-        usercreate = user.objects.create(username=username, mail=mail, password=password)
+        usercreate = user.objects.create(username=username, mail=mail, password=password, score=0)
         usercreate.save()
         return True
 

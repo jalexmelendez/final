@@ -87,3 +87,32 @@ function renderQuestions() {
     const questionTarget = document.getElementById('questionTarget');
     ReactDOM.render(questionObj, questionTarget);
 }
+
+function renderAnswers() {
+    let answerstable = 
+    <table class="uk-table">
+    <caption>Test results</caption>
+    <thead>
+        <tr>
+            <th>Your answer</th>
+            <th>Correct answer</th>
+            <th>Points</th>
+        </tr>
+    </thead>
+    <tbody>
+        <Results />
+    </tbody>
+</table>;
+const compTarget = document.getElementById('questionTarget');
+ReactDOM.render(answerstable, compTarget);
+}
+
+function Results() {
+        let answers = dataToRender.map((data) =>
+        <tr>
+            <td key={data.user.toString()}>{data.user}</td>
+            <td key={data.correct.toString()}>{data.correct}</td>
+            <td key={data.evaluation.toString()}>{data.evaluation == true ? '+1' : '0'}</td>
+        </tr>);
+        return answers;
+}

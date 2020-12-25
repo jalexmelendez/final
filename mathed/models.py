@@ -19,7 +19,7 @@ class user(models.Model):
     phone = models.CharField(max_length=225)
     current_lesson = models.CharField(max_length=225)
     difficulty_load = models.CharField(max_length=225)
-    score = models.CharField(max_length=225)
+    score = models.IntegerField(default=0)
     avg_1 = models.CharField(max_length=225)
     avg_2 = models.CharField(max_length=225)
     avg_3 = models.CharField(max_length=225)

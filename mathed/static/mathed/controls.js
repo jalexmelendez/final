@@ -86,10 +86,18 @@ function testSubmit() {
     for(i=0;i<dataSet.length;i++) {
         let correct = dataSet[i].getAttribute('data-set');
         let usrAnswer = dataSet[i].value;
-        let format = {'user': parseInt(usrAnswer), 'correct': correct}
-        answers.push(format);
+        if (usrAnswer.length == 0) {
+            let format = {'user': 0, 'correct': correct}
+            answers.push(format);
+        }
+        else {
+            let format = {'user': parseInt(usrAnswer), 'correct': correct}
+            answers.push(format);
+        }
     }
     testApiEngine(answers);
     console.log(answers);
+    document.getElementById('testControls').innerHTML = '';
+    document.getElementById('finishRevision').style.display = 'block';
     return 0 ;
 }

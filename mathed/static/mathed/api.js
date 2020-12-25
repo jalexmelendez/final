@@ -51,7 +51,10 @@ function testApiEngine(answers) {
         return response.json();
     })
     .then(response => {
+        dataToRender.splice(0, dataToRender.length);
         console.log(response);
+        pushData(response);
+        renderAnswers();
     })
 }
 

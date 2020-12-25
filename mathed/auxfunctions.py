@@ -1,4 +1,5 @@
 from django.http import HttpResponse, JsonResponse
+#from django.db.models import 
 from .models import user, achieve, test, school, school_group
 from random import randint
 #Auxiliar functions
@@ -141,7 +142,7 @@ class testEngine:
 
     @staticmethod
     def rndNumGen():
-        testLength = 25
+        testLength = 5
         data = []
         for i in range(0, testLength):
             i += 1
@@ -202,9 +203,16 @@ class testSolver:
                 score_ponts += 1
             else:
                 evaluation = False
-            format = {'user': userAns,'corect': correct, 'evaluation': evaluation}
+            format = {'user': userAns,'correct': correct, 'evaluation': evaluation}
             data.append(format)
+        testSolver.updateScore(answers['user'], score_ponts)
         return data
+    
+    @staticmethod
+    def updateScore(username, points):
+        db_extract = user.objects.filter(username=username).first()
+        db_extract.score = int(db_extract.score) + points
+        db_extract.save()
 
 ##Achievement engine
 
@@ -219,9 +227,27 @@ class achieveEngine:
         newAchieve.save()
         apiRoutes.achievements(data)
 
-##Global data calculation
-###All users
-###All schools
-###All Groups
+    @staticmethod
+    def achievementUnlock(totalScore, testScore):
+        if testScore == 5:
+            pass
+        else:
+            return False
 
-##Query to JSON array engine
+
+class achieveList:
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def one():
+        pass
+
+    @staticmethod
+    def two():
+        pass
+
+    @staticmethod
+    def three():
+        pass
