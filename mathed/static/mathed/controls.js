@@ -76,6 +76,7 @@ function startMult() {
 // Init test
 function initExam() {
     document.getElementById('questionTarget').innerHTML = '';
+    document.getElementById('testControls').style.display = 'block';
     renderQuestions();
 }
 

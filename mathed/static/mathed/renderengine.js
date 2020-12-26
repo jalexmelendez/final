@@ -29,16 +29,16 @@ ReactDOM.render(achievementsMainContainer, renderTarget);
 
 function achievementComponents() {
     console.log('executed');
-    let achievementObject = dataToRender.map(() =>
+    let achievementObject = dataToRender.map((data) =>
     <div class="uk-card uk-card-default uk-card-hover">
         <div class="uk-card-header">
             <div class="uk-grid-small uk-flex-middle" uk-grid>
                 <div class="uk-width-auto">
-                    <img class="uk-border-circle" width="40" height="40" src="images/avatar.jpg"></img>
+                    <img class="uk-border-circle" width="40" height="40" src="https://png.pngtree.com/png-vector/20190819/ourlarge/pngtree-gold-trophy-icon-trophy-icon-winner-icon-png-image_1694365.jpg"></img>
                 </div>
                 <div class="uk-width-expand">
-                    <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
-                    <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
+                    <h3 class="uk-card-title uk-margin-remove-bottom">Achievement</h3>
+                    <p class="uk-text-meta uk-margin-remove-top"><time key={data.toString()} datetime="2016-04-01T19:00">{data}</time></p>
                 </div>
             </div>
         </div>

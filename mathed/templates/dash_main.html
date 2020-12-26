@@ -124,7 +124,7 @@
                     </div>
                     <div class="uk-width-expand">
                         <h3 class="uk-card-title uk-margin-remove-bottom">Unlocked achievements</h3>
-                        <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">For this first version we have six achievements.</time></p>
+                        <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">For this first version we have four achievements plus a secret.</time></p>
                     </div>
                 </div>
             </div>
@@ -153,7 +153,7 @@
                 </div>
             </div>
             <div id="usercomponentsTarget" class="uk-card-body">
-                <p>In this section you can see the top users in real time sorted by score, ckith the button bellow to render information.</p>
+                <p>In this section you can see the top users in real time sorted by score, click the button bellow to render information.</p>
             </div>
             <div class="uk-card-footer">
                 <a onClick="topuserComponents()" class="uk-button uk-button-text">Click to fetch top users</a>
@@ -167,27 +167,27 @@
 
           <!--Sum-->
           <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
-            <div class="uk-card-badge uk-label">25 questions</div>
+            <div class="uk-card-badge uk-label">5 questions</div>
             <h3 class="uk-card-title">Sum</h3>
-            <p>Lorem ipsum color sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Start a test in the medium difficulty involving Sum.</p>
             <a onclick="startSum()" class="uk-button uk-button-default" href="#modal-overflow" uk-toggle>Start</a>
           </div>    
           <!--End Sum-->
              
           <!--Substraction-->
           <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
-            <div class="uk-card-badge uk-label">25 questions</div>
+            <div class="uk-card-badge uk-label">5 questions</div>
             <h3 class="uk-card-title">Substraction</h3>
-            <p>Lorem ipsum color sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Start a test in the medium difficulty involving Substraction.</p>
             <a onclick="startSub()" class="uk-button uk-button-default" href="#modal-overflow" uk-toggle>Start</a>
           </div> 
           <!--End Substraction-->
 
           <!--Multiplication-->
           <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
-            <div class="uk-card-badge uk-label">25 questions</div>
+            <div class="uk-card-badge uk-label">5 questions</div>
             <h3 class="uk-card-title">Multiplication</h3>
-            <p>Lorem ipsum color sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Start a test in the medium difficulty involving Multiplication.</p>
             <a onclick="startMult()" class="uk-button uk-button-default" href="#modal-overflow" uk-toggle>Start</a>
           </div>  
           <!--End Multiplication-->
@@ -206,11 +206,25 @@
                   </div>
                   <div id="questionTarget" class="uk-modal-body" uk-overflow-auto>
 
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                      <button onclick="initExam()" class="uk-button uk-button-danger">Start test</button>
+                      <p><strong>Instructions:</strong></p>
+                      <p>In this test you should perform the operations given.</p>
+                      <p>The use of external tools is not permited, every operation must be done mentally.</p>
+                      <p>Only correct answers will give you points, any blank space or wrong answer will not add any points to your score.</p>
+                      <p>Take your time, if needed you may do the operations writing on a notebook.</p>
+                      <p>When you press the start button there is no going back unless you finish your test.</p>
+                      <p>If there is any error within the application feel free to report it.</p>
+                      <p>As you may know, there are some achevements on this game, keep playing and learning to unlock them.</p>
+                      <p>Real time ranking is present on this game, it is sorted by top ten highest scores.</p>
+                      <p>Be aware that in the future your overall progress and test results can be seen by your tutor.</p>
+                      <p>Difficulty A.I. is not written yet for the prototype, the standard difficulty and work load is five questions, each granting a point and operations with 1 to 3 figures.</p>
+                      <p>You should wait until the application gives your results after you click submit.</p>
+
+                      <div style="padding-top:15px;padding-bottom: 15px;">
+                        <button onclick="initExam()" class="uk-button uk-button-danger">Start test</button>
+                      </div>
 
                   </div>
-                  <div id="testControls" class="uk-modal-footer uk-text-right">
+                  <div id="testControls" class="uk-modal-footer uk-text-right" style="display: none;">
                       <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
                       <button onclick="testSubmit()" class="uk-button uk-button-primary" type="button">Submit test</button>
                   </div>

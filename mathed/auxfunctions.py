@@ -211,8 +211,10 @@ class testSolver:
     @staticmethod
     def updateScore(username, points):
         db_extract = user.objects.filter(username=username).first()
-        db_extract.score = int(db_extract.score) + points
+        updatedScore = int(db_extract.score) + points
+        db_extract.score = updatedScore
         db_extract.save()
+        achieveEngine.achievementUnlock(username, updatedScore, points)
 
 ##Achievement engine
 
@@ -228,11 +230,19 @@ class achieveEngine:
         apiRoutes.achievements(data)
 
     @staticmethod
-    def achievementUnlock(totalScore, testScore):
+    def achievementUnlock(username, totalScore, testScore):
         if testScore == 5:
-            pass
+            achieveList.one(username)
+        if totalScore > 10:
+            achieveList.two(username)
+        if totalScore > 50:
+            achieveList.three(username)
+        if totalScore > 100:
+            achieveList.four(username)
+        if totalScore > 1000:
+            achieveList.five(username)
         else:
-            return False
+            pass
 
 
 class achieveList:
@@ -241,13 +251,31 @@ class achieveList:
         pass
 
     @staticmethod
-    def one():
-        pass
+    def one(username):
+        db_extract = achieve.objects.filter(username=username).first()
+        db_extract.a1 = "Perfect score: You ansewred a test with no errors."
+        db_extract.save()
 
     @staticmethod
-    def two():
-        pass
+    def two(username):
+        db_extract = achieve.objects.filter(username=username).first()
+        db_extract.a2 = "Im just starting: You have gathered more than 10 points."
+        db_extract.save()
 
     @staticmethod
-    def three():
-        pass
+    def three(username):
+        db_extract = achieve.objects.filter(username=username).first()
+        db_extract.a3 = "Experienced: You have gathered more than 50 points."
+        db_extract.save()
+
+    @staticmethod
+    def four(username):
+        db_extract = achieve.objects.filter(username=username).first()
+        db_extract.a4 = "Math master: You have gathered more than 100 points."
+        db_extract.save()
+
+    @staticmethod
+    def five(username):
+        db_extract = achieve.objects.filter(username=username).first()
+        db_extract.a5 = "SUPREME MATH GOD: How did you gather more than 1000 points in the demo?."
+        db_extract.save()        

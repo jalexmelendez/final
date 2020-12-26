@@ -48,7 +48,7 @@ def create(request):
         if create is False:
             return HttpResponse(dbProcessFailureUsr_exist())
         else:
-            return JsonResponse(create, safe=False)
+            return HttpResponseRedirect(reverse('index'), request)
     else:
         return HttpResponse(badHttpRequest())
 

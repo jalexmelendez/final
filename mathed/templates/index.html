@@ -9,120 +9,77 @@
         <!--Font awesome-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     </head>
-    <body>
-        
-        <!--
-            Thanks to Alberto Hartzet for providing this layout
-            www.albertohartzet.com
-            Licence (CC BY-NC-SA 4.0) http://creativecommons.org/licenses/by-nc-sa/4.0/*/
-        -->
-        <div class="ct" id="t1">
-            <div class="ct" id="t2">
-              <div class="ct" id="t3">
-                <div class="ct" id="t4">
-                   <div class="ct" id="t5">
-                    <ul id="menu">
-                      <a href="#t1"><li class="icon fa fa-bolt" id="uno"></li></a>
-                      <a href="#t2"><li class="icon fa fa-keyboard-o" id="dos"></li></a>
-                      <a href="#t3"><li class="icon fa fa-rocket" id="tres"></li></a>
-                      <a href="#t4"><li class="icon fa fa-dribbble" id="cuatro"></li></a>
-                      <a href="#t5"><li class="icon fa fa-plus-circle" id="cinco"></li></a>
-                    </ul>
-                    <div class="page" id="p1">
-                       <section class="icon fa fa-bolt"><span class="title">Bolt</span><span class="hint">Like this pen to see the magic!...<br> Just kidding, it won't happen anything but I'll be really happy If you do so.</span></section>  
-                    </div>
-                    <div class="page" id="p2">
-                      <section class="icon fa fa-keyboard-o"><span class="title">Type</span></section>
-                    </div>  
-                    <div class="page" id="p3">
-                      <section class="icon fa fa-rocket"><span class="title">Rocket</span></section>
-                    </div>
-                    <div class="page" id="p4">
-                      <section class="icon fa fa-dribbble">
-                        <span class="title">Dribbble</span>
-                        <p class="hint">
-                          <a href="https://dribbble.com/albertohartzet" target="_blank">Im ready to play, <span class="hint line-trough">invite me </span> find me</a>
-                        </p>
-                        <p class="hint">Already invited by <a href="http://www.dribbble.com/mrpeters" target="_blank">Stan Peters</a></p>
-                      </section>
-                    </div> 
-                    <div class="page" id="p5">
-                      <section>
-                        <!--Signup and login form-->
-                        <h2>Log in or create an account</h2>
-                        <div class="container" id="container">
-                        <div class="form-container sign-up-container">
-                            <!--Create new-->
-                            <form action="/create" method="POST">
-                            {% csrf_token %}
-                            <h1>Create Account</h1>
-                            <div class="social-container">
-                                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                            <span>or use your email for registration</span>
-                            <input name="username" type="text" placeholder="Username" />
-                            <input name="email" type="email" placeholder="Email" />
-                            <input name="password" type="password" placeholder="Password" />
-                            <button type="submit">Sign Up</button>
-                            </form>
-                            <!--End Of Create new-->
-                        </div>
-                        <div class="form-container sign-in-container">
-                            <!--Sign Log in-->
-                            <form action="/login" method="POST">
-                            {% csrf_token %}
-                            <h1>Sign in</h1>
-                            <div class="social-container">
-                                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                            <span>or use your account</span>
-                            <input name="username" type="text" placeholder="Username" />
-                            <input name="password" type="password" placeholder="Password" />
-                            <a onclick="alert('Pending function.')">Forgot your password?</a>
-                            <button type="submit">Log In</button>
-                            </form>
-                            <!--Endof Log in-->
-                        </div>
-                        <div class="overlay-container">
-                            <div class="overlay">
-                            <div class="overlay-panel overlay-left">
-                                <h1>Welcome Back!</h1>
-                                <p>To keep connected with us please login with your personal info</p>
-                                <button onclick="show_left_panel()" class="ghost" id="signIn">Sign In</button>
-                            </div>
-                            <div class="overlay-panel overlay-right">
-                                <h1>Hello, Friend!</h1>
-                                <p>Enter your personal details and start journey with us</p>
-                                <button onclick="show_right_panel()" class="ghost" id="signUp">Sign Up</button>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        <!--
-                            Form created using Florin Pop's Code:
-                            https://florin-pop.com
-                        -->
-                        <script>
-                            function show_right_panel() {
-                                container.classList.add("right-panel-active");
-                            };
-                            
-                            function show_left_panel() {
-                                container.classList.remove("right-panel-active");
-                            };
-                        </script>
-
-                        <!--Endof form-->
-                      </section>
-                    </div> 
-                  </div>
-                </div>
-              </div>
+    <body style="background-image: url('https://cdn.pixabay.com/photo/2017/08/10/20/42/school-2627619_960_720.jpg'); height: 100%;">
+     <section>
+            <!--Signup and login form-->
+            <h2>Log in or create an account</h2>
+            <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <!--Create new-->
+                <form action="/create" method="POST">
+                {% csrf_token %}
+                <h1>Create Account</h1>
+                <!--<div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>-->
+                <span>or use your email for registration</span>
+                <input name="username" type="text" placeholder="Username" />
+                <input name="email" type="email" placeholder="Email" />
+                <input name="password" type="password" placeholder="Password" />
+                <button type="submit">Sign Up</button>
+                </form>
+                <!--End Of Create new-->
             </div>
-          </div>
+            <div class="form-container sign-in-container">
+                <!--Sign Log in-->
+                <form action="/login" method="POST">
+                {% csrf_token %}
+                <h1>Sign in</h1>
+                <!--<div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>-->
+                <span>or use your account</span>
+                <input name="username" type="text" placeholder="Username" />
+                <input name="password" type="password" placeholder="Password" />
+                <a onclick="alert('Pending function.')">Forgot your password?</a>
+                <button type="submit">Log In</button>
+                </form>
+                <!--Endof Log in-->
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button onclick="show_left_panel()" class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello!</h1>
+                    <p>Register your account to start learning in a fun way.</p>
+                    <button onclick="show_right_panel()" class="ghost" id="signUp">Sign Up</button>
+                </div>
+                </div>
+            </div>
+            </div>
+            <!--
+                Form created using Florin Pop's Code:
+                https://florin-pop.com
+            -->
+            <script>
+                function show_right_panel() {
+                    container.classList.add("right-panel-active");
+                };
+                
+                function show_left_panel() {
+                    container.classList.remove("right-panel-active");
+                };
+            </script>
+
+            <!--Endof form-->
+          </section>
     </body>
 </html>
